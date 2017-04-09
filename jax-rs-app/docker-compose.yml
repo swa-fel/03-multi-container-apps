@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+ postgres:
+  image: registry.access.redhat.com/openshift3/postgresql-92-rhel7
+  container_name: db
+  ports:
+   - "5432"
+  environment:
+   - POSTGRESQL_USER=pguser
+   - POSTGRESQL_PASSWORD=pgpasswd
+   - POSTGRESQL_DATABASE=pgdb
+ web:
+  build: .
+  container_name: web
+  depends_on:
+    - postgres
+  ports:
+    - "80:8080"
