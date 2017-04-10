@@ -31,3 +31,14 @@
 $ git clone https://github.com/swa-fel/03-multi-container-apps
 ```
 
+Build the application:
+
+```
+$ docker-compose build
+```
+
+Open the application
+
+```
+$ xdg-open http://localhost/helloworld-rs/
+```
