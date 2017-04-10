@@ -6,39 +6,4 @@
 
 ## Labs
 
-1. Install required packages
-
-  ```
-  $ yum install docker git python-pip
-  ```
-
-  Start docker
-
-  ```
-  $ systemctl start docker
-  ```
-
-  Install docker-compose
-
-  ```
-  $ pip install docker-compose
-  ```
-
-
-2. Clone this repository
-
-```
-$ git clone https://github.com/swa-fel/03-multi-container-apps
-```
-
-Build the application:
-
-```
-$ docker-compose build
-```
-
-Open the application
-
-```
-$ xdg-open http://localhost/helloworld-rs/
-```
+Labs contain detailed description [here](https://github.com/swa-fel/03-multi-container-apps/tree/master/jax-rs-app).

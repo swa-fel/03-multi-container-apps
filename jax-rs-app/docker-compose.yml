@@ -11,6 +11,7 @@ services:
    - POSTGRESQL_PASSWORD=pgpasswd
    - POSTGRESQL_DATABASE=pgdb
  web:
+  image: jax-rs-app
   build: .
   container_name: web
   depends_on:

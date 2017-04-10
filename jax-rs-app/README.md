@@ -27,6 +27,9 @@ In this section you will deploy the application and database on your centos7 mac
 # download materials for this lab
 git clone https://github.com/swa-fel/03-multi-container-apps
 
+# let's get to directory containing the lab
+cd 03-multi-container-apps/jax-rs-app/
+
 # run the database, in this case postgresql
 docker run --name db -it --rm -p 5432:5432 \
   -e POSTGRESQL_USER=pguser \
@@ -42,9 +45,9 @@ GPASSWORD=pgpasswd psql -h localhost -U pguser pgdb
 exit
 
 # build docker image for the web application, don't forget to check the [source code](https://github.com/swa-fel/03-multi-container-apps/tree/master/jax-rs-app/app)
-cd jax-rs-app; docker build -t web .
+docker build -t jax-rs-app .
 
-docker run --name web --link db:db -it -p 80:8080 --rm web
+docker run --name web --link db:db -it -p 80:8080 --rm jax-rs-app
 ```
 If everything worked, the app will be accessible online. On the root URI you will find the wildfly welcome page and the app is on `helloworld-rs`
 
@@ -53,7 +56,7 @@ In this task you will automate steps from previous task with docker-compose. Exp
 ```
 # delete artefacts from previous task
 docker rm -rv `docker ps -aq`
-docker rmi -f web
+docker rmi -f jax-rs-app
 
 sudo docker-compose up
 ```
